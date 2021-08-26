@@ -1,24 +1,18 @@
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::serde::{Deserialize, Serialize};
-use near_sdk::{
-    env, near_bindgen, BorshStorageKey, PanicOnDefault,
-};
+use near_sdk::{env, near_bindgen, BorshStorageKey, PanicOnDefault};
 
 near_sdk::setup_alloc!();
 
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize, PanicOnDefault)]
-pub struct Contract {
-
-}
+pub struct Contract {}
 
 #[near_bindgen]
 impl Contract {
     #[init]
     pub fn new() -> Self {
-        Self {
-
-        }
+        Self {}
     }
 }
 
@@ -26,14 +20,12 @@ impl Contract {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use near_sdk::MockedBlockchain;
     use near_sdk::test_utils::{get_logs, VMContextBuilder};
+    use near_sdk::MockedBlockchain;
     use near_sdk::{testing_env, VMContext};
 
     fn get_context(is_view: bool) -> VMContext {
-        VMContextBuilder::new()
-            .is_view(is_view)
-            .build()
+        VMContextBuilder::new().is_view(is_view).build()
     }
 
     #[test]
